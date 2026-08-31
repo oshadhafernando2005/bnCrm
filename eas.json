@@ -1,0 +1,27 @@
+{
+  "cli": {
+    "version": ">= 19.0.5",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {
+      "autoIncrement": true
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "pathirana78@gmail.com",
+        "ascAppId": "6777437883",
+        "appleTeamId": "ZL66FWG9M3"
+      }
+    }
+  }
+}
