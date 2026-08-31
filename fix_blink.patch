@@ -1,0 +1,70 @@
+diff --git a/app/crm/1stage.tsx b/app/crm/1stage.tsx
+index 797e3e7..26d02a4 100644
+--- a/app/crm/1stage.tsx
++++ b/app/crm/1stage.tsx
+@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
+ import {
+   ActivityIndicator,
+   Alert,
++  Keyboard,
+   KeyboardAvoidingView,
+   Linking,
+   Platform,
+@@ -94,9 +95,12 @@ export default function AllUsers() {
+   };
+ 
+   const closeModal = () => {
+-    setSelectedUser(null);
+-    setNotes("");
+-    setEditMode(false);
++    Keyboard.dismiss();
++    setTimeout(() => {
++      setSelectedUser(null);
++      setNotes("");
++      setEditMode(false);
++    }, 100);
+   };
+ 
+   const startEdit = () => {
+diff --git a/app/crm/2stage.tsx b/app/crm/2stage.tsx
+index 09c39d1..9de32d2 100644
+--- a/app/crm/2stage.tsx
++++ b/app/crm/2stage.tsx
+@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
+ import {
+   ActivityIndicator,
+   Alert,
++  Keyboard,
+   KeyboardAvoidingView,
+   Linking,
+   Platform,
+@@ -87,9 +88,12 @@ export default function StageTwo() {
+   };
+ 
+   const closeModal = () => {
+-    setSelectedUser(null);
+-    setNotes("");
+-    setEditMode(false);
++    Keyboard.dismiss();
++    setTimeout(() => {
++      setSelectedUser(null);
++      setNotes("");
++      setEditMode(false);
++    }, 100);
+   };
+ 
+   const startEdit = () => {
+diff --git a/app/crm/finalStage.tsx b/app/crm/finalStage.tsx
+index 81eef5a..ae3cc8b 100644
+--- a/app/crm/finalStage.tsx
++++ b/app/crm/finalStage.tsx
+@@ -13,7 +13,8 @@ import { useEffect, useState } from "react";
+ import {
+     ActivityIndicator,
+     Alert,
+-    KeyboardAvoidingView,
++    Keyboard,
++  KeyboardAvoidingView,
+   Linking,
+     Platform,
+   Modal,
