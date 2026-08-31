@@ -1,18 +1,19 @@
 diff --git a/app/crm/1stage.tsx b/app/crm/1stage.tsx
+index c85f67f..797e3e7 100644
 --- a/app/crm/1stage.tsx
 +++ b/app/crm/1stage.tsx
-@@ -1,6 +1,8 @@
+@@ -13,7 +13,9 @@ import { useEffect, useState } from "react";
  import {
    ActivityIndicator,
    Alert,
 +  KeyboardAvoidingView,
    Linking,
-   Modal,
 +  Platform,
+   Modal,
    SafeAreaView,
    ScrollView,
-   StyleSheet,
-@@ -200,7 +202,9 @@ export default function AllUsers() {
+@@ -270,7 +272,10 @@ export default function AllUsers() {
+         transparent={true}
          onRequestClose={closeModal}
        >
 -        <View style={styles.modalOverlay}>
@@ -21,27 +22,33 @@ diff --git a/app/crm/1stage.tsx b/app/crm/1stage.tsx
 +          style={styles.modalOverlay}
 +        >
            <View style={styles.modalContainer}>
-@@ -290,7 +294,7 @@ export default function AllUsers() {
+ 
+             {/* Modal Header */}
+@@ -610,7 +615,7 @@ export default function AllUsers() {
+ 
+             </ScrollView>
            </View>
 -        </View>
 +        </KeyboardAvoidingView>
        </Modal>
-
+     </SafeAreaView>
+   );
 diff --git a/app/crm/2stage.tsx b/app/crm/2stage.tsx
+index 36e4fe3..09c39d1 100644
 --- a/app/crm/2stage.tsx
 +++ b/app/crm/2stage.tsx
-@@ -1,6 +1,8 @@
+@@ -13,7 +13,9 @@ import { useEffect, useState } from "react";
  import {
    ActivityIndicator,
    Alert,
 +  KeyboardAvoidingView,
    Linking,
-   Modal,
 +  Platform,
+   Modal,
    SafeAreaView,
    ScrollView,
-   StyleSheet,
-@@ -165,7 +167,9 @@ export default function StageTwo() {
+@@ -257,7 +259,10 @@ export default function StageTwo() {
+         transparent={true}
          onRequestClose={closeModal}
        >
 -        <View style={styles.modalOverlay}>
@@ -50,27 +57,36 @@ diff --git a/app/crm/2stage.tsx b/app/crm/2stage.tsx
 +          style={styles.modalOverlay}
 +        >
            <View style={styles.modalContainer}>
-@@ -240,7 +244,7 @@ export default function StageTwo() {
+ 
+             {/* Modal Header */}
+@@ -523,7 +528,7 @@ export default function StageTwo() {
+ 
+             </ScrollView>
            </View>
 -        </View>
 +        </KeyboardAvoidingView>
        </Modal>
-
+     </SafeAreaView>
+   );
 diff --git a/app/crm/finalStage.tsx b/app/crm/finalStage.tsx
+index 8aa0b8a..81eef5a 100644
 --- a/app/crm/finalStage.tsx
 +++ b/app/crm/finalStage.tsx
-@@ -1,6 +1,8 @@
+@@ -13,8 +13,10 @@ import { useEffect, useState } from "react";
  import {
-   ActivityIndicator,
-   Alert,
-+  KeyboardAvoidingView,
-   Linking,
-   Modal,
-+  Platform,
-   SafeAreaView,
-   ScrollView,
-   StyleSheet,
-@@ -165,7 +167,9 @@ export default function FinalStage() {
+     ActivityIndicator,
+     Alert,
+-    Linking,
+-    Modal,
++    KeyboardAvoidingView,
++  Linking,
++    Platform,
++  Modal,
+     SafeAreaView,
+     ScrollView,
+     StyleSheet,
+@@ -195,7 +197,10 @@ export default function FinalStage() {
+         transparent={true}
          onRequestClose={closeModal}
        >
 -        <View style={styles.modalOverlay}>
@@ -79,8 +95,14 @@ diff --git a/app/crm/finalStage.tsx b/app/crm/finalStage.tsx
 +          style={styles.modalOverlay}
 +        >
            <View style={styles.modalContainer}>
-@@ -240,7 +244,7 @@ export default function FinalStage() {
+ 
+             {/* Modal Header */}
+@@ -300,7 +305,7 @@ export default function FinalStage() {
+ 
+             </ScrollView>
            </View>
 -        </View>
 +        </KeyboardAvoidingView>
        </Modal>
+     </SafeAreaView>
+   );
