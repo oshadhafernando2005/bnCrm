@@ -1,0 +1,86 @@
+diff --git a/app/crm/1stage.tsx b/app/crm/1stage.tsx
+--- a/app/crm/1stage.tsx
++++ b/app/crm/1stage.tsx
+@@ -1,6 +1,8 @@
+ import {
+   ActivityIndicator,
+   Alert,
++  KeyboardAvoidingView,
+   Linking,
+   Modal,
++  Platform,
+   SafeAreaView,
+   ScrollView,
+   StyleSheet,
+@@ -200,7 +202,9 @@ export default function AllUsers() {
+         onRequestClose={closeModal}
+       >
+-        <View style={styles.modalOverlay}>
++        <KeyboardAvoidingView
++          behavior={Platform.OS === "ios" ? "padding" : "height"}
++          style={styles.modalOverlay}
++        >
+           <View style={styles.modalContainer}>
+@@ -290,7 +294,7 @@ export default function AllUsers() {
+           </View>
+-        </View>
++        </KeyboardAvoidingView>
+       </Modal>
+
+diff --git a/app/crm/2stage.tsx b/app/crm/2stage.tsx
+--- a/app/crm/2stage.tsx
++++ b/app/crm/2stage.tsx
+@@ -1,6 +1,8 @@
+ import {
+   ActivityIndicator,
+   Alert,
++  KeyboardAvoidingView,
+   Linking,
+   Modal,
++  Platform,
+   SafeAreaView,
+   ScrollView,
+   StyleSheet,
+@@ -165,7 +167,9 @@ export default function StageTwo() {
+         onRequestClose={closeModal}
+       >
+-        <View style={styles.modalOverlay}>
++        <KeyboardAvoidingView
++          behavior={Platform.OS === "ios" ? "padding" : "height"}
++          style={styles.modalOverlay}
++        >
+           <View style={styles.modalContainer}>
+@@ -240,7 +244,7 @@ export default function StageTwo() {
+           </View>
+-        </View>
++        </KeyboardAvoidingView>
+       </Modal>
+
+diff --git a/app/crm/finalStage.tsx b/app/crm/finalStage.tsx
+--- a/app/crm/finalStage.tsx
++++ b/app/crm/finalStage.tsx
+@@ -1,6 +1,8 @@
+ import {
+   ActivityIndicator,
+   Alert,
++  KeyboardAvoidingView,
+   Linking,
+   Modal,
++  Platform,
+   SafeAreaView,
+   ScrollView,
+   StyleSheet,
+@@ -165,7 +167,9 @@ export default function FinalStage() {
+         onRequestClose={closeModal}
+       >
+-        <View style={styles.modalOverlay}>
++        <KeyboardAvoidingView
++          behavior={Platform.OS === "ios" ? "padding" : "height"}
++          style={styles.modalOverlay}
++        >
+           <View style={styles.modalContainer}>
+@@ -240,7 +244,7 @@ export default function FinalStage() {
+           </View>
+-        </View>
++        </KeyboardAvoidingView>
+       </Modal>
