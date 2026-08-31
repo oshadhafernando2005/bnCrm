@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
+  Keyboard,
   KeyboardAvoidingView,
   Linking,
   Platform,
@@ -87,9 +88,12 @@ export default function StageTwo() {
   };
 
   const closeModal = () => {
-    setSelectedUser(null);
-    setNotes("");
-    setEditMode(false);
+    Keyboard.dismiss();
+    setTimeout(() => {
+      setSelectedUser(null);
+      setNotes("");
+      setEditMode(false);
+    }, 100);
   };
 
   const startEdit = () => {
