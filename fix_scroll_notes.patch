@@ -1,0 +1,106 @@
+diff --git a/app/crm/1stage.tsx b/app/crm/1stage.tsx
+index 26d02a4..e858385 100644
+--- a/app/crm/1stage.tsx
++++ b/app/crm/1stage.tsx
+@@ -9,7 +9,7 @@ import {
+   query,
+   updateDoc,
+ } from "firebase/firestore";
+-import { useEffect, useState } from "react";
++import { useEffect, useRef, useState } from "react";
+ import {
+   ActivityIndicator,
+   Alert,
+@@ -61,6 +61,7 @@ const industries = [
+ 
+ export default function AllUsers() {
+   const router = useRouter();
++  const scrollRef = useRef<any>(null);
+   const [users, setUsers] = useState<User[]>([]);
+   const [loading, setLoading] = useState(true);
+   const [selectedUser, setSelectedUser] = useState<User | null>(null);
+@@ -310,7 +311,7 @@ export default function AllUsers() {
+               </View>
+             </View>
+ 
+-            <ScrollView showsVerticalScrollIndicator={false}>
++            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false}>
+ 
+               {/* ── VIEW MODE ── */}
+               {!editMode && (
+@@ -481,6 +482,7 @@ export default function AllUsers() {
+                     multiline
+                     numberOfLines={4}
+                     textAlignVertical="top"
++                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 300)}
+                   />
+ 
+                   <TouchableOpacity
+diff --git a/app/crm/2stage.tsx b/app/crm/2stage.tsx
+index 9de32d2..b8ba846 100644
+--- a/app/crm/2stage.tsx
++++ b/app/crm/2stage.tsx
+@@ -9,7 +9,7 @@ import {
+   query,
+   updateDoc,
+ } from "firebase/firestore";
+-import { useEffect, useState } from "react";
++import { useEffect, useRef, useState } from "react";
+ import {
+   ActivityIndicator,
+   Alert,
+@@ -54,6 +54,7 @@ const industries = [
+ 
+ export default function StageTwo() {
+   const router = useRouter();
++  const scrollRef = useRef<any>(null);
+   const [users, setUsers] = useState<User[]>([]);
+   const [loading, setLoading] = useState(true);
+   const [selectedUser, setSelectedUser] = useState<User | null>(null);
+@@ -297,7 +298,7 @@ export default function StageTwo() {
+               </View>
+             </View>
+ 
+-            <ScrollView showsVerticalScrollIndicator={false}>
++            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false}>
+ 
+               {/* ── VIEW MODE ── */}
+               {!editMode && (
+@@ -392,6 +393,7 @@ export default function StageTwo() {
+                     multiline
+                     numberOfLines={4}
+                     textAlignVertical="top"
++                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 300)}
+                   />
+ 
+                   {/* Save Notes */}
+diff --git a/app/crm/finalStage.tsx b/app/crm/finalStage.tsx
+index ae3cc8b..5ee83ad 100644
+--- a/app/crm/finalStage.tsx
++++ b/app/crm/finalStage.tsx
+@@ -9,7 +9,7 @@ import {
+     query,
+     updateDoc,
+ } from "firebase/firestore";
+-import { useEffect, useState } from "react";
++import { useEffect, useRef, useState } from "react";
+ import {
+     ActivityIndicator,
+     Alert,
+@@ -42,6 +42,7 @@ type User = {
+ 
+ export default function FinalStage() {
+   const router = useRouter();
++  const scrollRef = useRef<any>(null);
+   const [users, setUsers] = useState<User[]>([]);
+   const [loading, setLoading] = useState(true);
+   const [selectedUser, setSelectedUser] = useState<User | null>(null);
+@@ -215,7 +216,7 @@ export default function FinalStage() {
+               </TouchableOpacity>
+             </View>
+ 
+-            <ScrollView showsVerticalScrollIndicator={false}>
++            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false}>
+ 
+               {/* Info */}
+               <View style={styles.infoBox}>
