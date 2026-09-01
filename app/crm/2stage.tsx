@@ -9,14 +9,11 @@ import {
   query,
   updateDoc,
 } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
-  Keyboard,
-  KeyboardAvoidingView,
   Linking,
-  Platform,
   Modal,
   SafeAreaView,
   ScrollView,
@@ -54,6 +51,7 @@ const industries = [
 
 export default function StageTwo() {
   const router = useRouter();
+  const scrollRef = useRef<any>(null);
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
@@ -263,10 +261,7 @@ export default function StageTwo() {
         transparent={true}
         onRequestClose={closeModal}
       >
-        <KeyboardAvoidingView
-          behavior={Platform.OS === "ios" ? "padding" : "height"}
-          style={styles.modalOverlay}
-        >
+        <View style={styles.modalOverlay}>
           <View style={styles.modalContainer}>
 
             {/* Modal Header */}
@@ -297,7 +292,7 @@ export default function StageTwo() {
               </View>
             </View>
 
-            <ScrollView showsVerticalScrollIndicator={false}>
+            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false}>
 
               {/* ── VIEW MODE ── */}
               {!editMode && (
@@ -392,6 +387,7 @@ export default function StageTwo() {
                     multiline
                     numberOfLines={4}
                     textAlignVertical="top"
+                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 300)}
                   />
 
                   {/* Save Notes */}
@@ -532,7 +528,7 @@ export default function StageTwo() {
 
             </ScrollView>
           </View>
-        </KeyboardAvoidingView>
+        </View>
       </Modal>
     </SafeAreaView>
   );
