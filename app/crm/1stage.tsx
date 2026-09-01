@@ -274,10 +274,7 @@ export default function AllUsers() {
         onRequestClose={closeModal}
       >
         <View style={styles.modalOverlay}>
-          <KeyboardAvoidingView
-            behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={styles.modalContainer}
-          >
+          <View style={styles.modalContainer}>
 
             {/* Modal Header */}
             <View style={styles.modalHeader}>
@@ -307,7 +304,11 @@ export default function AllUsers() {
               </View>
             </View>
 
-            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false}>
+            <KeyboardAvoidingView
+              behavior={Platform.OS === "ios" ? "padding" : "height"}
+              style={{ flex: 1 }}
+            >
+            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
 
               {/* ── VIEW MODE ── */}
               {!editMode && (
@@ -616,7 +617,8 @@ export default function AllUsers() {
               )}
 
             </ScrollView>
-          </KeyboardAvoidingView>
+            </KeyboardAvoidingView>
+          </View>
         </View>
       </Modal>
     </SafeAreaView>

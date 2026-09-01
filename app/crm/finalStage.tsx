@@ -199,10 +199,7 @@ export default function FinalStage() {
         onRequestClose={closeModal}
       >
         <View style={styles.modalOverlay}>
-          <KeyboardAvoidingView
-            behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={styles.modalContainer}
-          >
+          <View style={styles.modalContainer}>
 
             {/* Modal Header */}
             <View style={styles.modalHeader}>
@@ -215,7 +212,11 @@ export default function FinalStage() {
               </TouchableOpacity>
             </View>
 
-            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false}>
+            <KeyboardAvoidingView
+              behavior={Platform.OS === "ios" ? "padding" : "height"}
+              style={{ flex: 1 }}
+            >
+            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
 
               {/* Info */}
               <View style={styles.infoBox}>
@@ -305,7 +306,8 @@ export default function FinalStage() {
               </TouchableOpacity>
 
             </ScrollView>
-          </KeyboardAvoidingView>
+            </KeyboardAvoidingView>
+          </View>
         </View>
       </Modal>
     </SafeAreaView>

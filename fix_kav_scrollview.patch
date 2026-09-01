@@ -1,0 +1,117 @@
+diff --git a/app/crm/1stage.tsx b/app/crm/1stage.tsx
+index f8375c4..1fdf659 100644
+--- a/app/crm/1stage.tsx
++++ b/app/crm/1stage.tsx
+@@ -274,10 +274,7 @@ export default function AllUsers() {
+         onRequestClose={closeModal}
+       >
+         <View style={styles.modalOverlay}>
+-          <KeyboardAvoidingView
+-            behavior={Platform.OS === "ios" ? "padding" : "height"}
+-            style={styles.modalContainer}
+-          >
++          <View style={styles.modalContainer}>
+ 
+             {/* Modal Header */}
+             <View style={styles.modalHeader}>
+@@ -307,7 +304,11 @@ export default function AllUsers() {
+               </View>
+             </View>
+ 
+-            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false}>
++            <KeyboardAvoidingView
++              behavior={Platform.OS === "ios" ? "padding" : "height"}
++              style={{ flex: 1 }}
++            >
++            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+ 
+               {/* ── VIEW MODE ── */}
+               {!editMode && (
+@@ -616,7 +617,8 @@ export default function AllUsers() {
+               )}
+ 
+             </ScrollView>
+-          </KeyboardAvoidingView>
++            </KeyboardAvoidingView>
++          </View>
+         </View>
+       </Modal>
+     </SafeAreaView>
+diff --git a/app/crm/2stage.tsx b/app/crm/2stage.tsx
+index 2e18330..a88f25c 100644
+--- a/app/crm/2stage.tsx
++++ b/app/crm/2stage.tsx
+@@ -261,10 +261,7 @@ export default function StageTwo() {
+         onRequestClose={closeModal}
+       >
+         <View style={styles.modalOverlay}>
+-          <KeyboardAvoidingView
+-            behavior={Platform.OS === "ios" ? "padding" : "height"}
+-            style={styles.modalContainer}
+-          >
++          <View style={styles.modalContainer}>
+ 
+             {/* Modal Header */}
+             <View style={styles.modalHeader}>
+@@ -294,7 +291,11 @@ export default function StageTwo() {
+               </View>
+             </View>
+ 
+-            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false}>
++            <KeyboardAvoidingView
++              behavior={Platform.OS === "ios" ? "padding" : "height"}
++              style={{ flex: 1 }}
++            >
++            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+ 
+               {/* ── VIEW MODE ── */}
+               {!editMode && (
+@@ -529,7 +530,8 @@ export default function StageTwo() {
+               )}
+ 
+             </ScrollView>
+-          </KeyboardAvoidingView>
++            </KeyboardAvoidingView>
++          </View>
+         </View>
+       </Modal>
+     </SafeAreaView>
+diff --git a/app/crm/finalStage.tsx b/app/crm/finalStage.tsx
+index 9669851..4d1f3c9 100644
+--- a/app/crm/finalStage.tsx
++++ b/app/crm/finalStage.tsx
+@@ -199,10 +199,7 @@ export default function FinalStage() {
+         onRequestClose={closeModal}
+       >
+         <View style={styles.modalOverlay}>
+-          <KeyboardAvoidingView
+-            behavior={Platform.OS === "ios" ? "padding" : "height"}
+-            style={styles.modalContainer}
+-          >
++          <View style={styles.modalContainer}>
+ 
+             {/* Modal Header */}
+             <View style={styles.modalHeader}>
+@@ -215,7 +212,11 @@ export default function FinalStage() {
+               </TouchableOpacity>
+             </View>
+ 
+-            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false}>
++            <KeyboardAvoidingView
++              behavior={Platform.OS === "ios" ? "padding" : "height"}
++              style={{ flex: 1 }}
++            >
++            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+ 
+               {/* Info */}
+               <View style={styles.infoBox}>
+@@ -305,7 +306,8 @@ export default function FinalStage() {
+               </TouchableOpacity>
+ 
+             </ScrollView>
+-          </KeyboardAvoidingView>
++            </KeyboardAvoidingView>
++          </View>
+         </View>
+       </Modal>
+     </SafeAreaView>

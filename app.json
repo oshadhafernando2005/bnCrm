@@ -24,7 +24,8 @@
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.oshadha2005.BriscaApp",
-      "versionCode": 4
+      "versionCode": 4,
+      "softwareKeyboardLayoutMode": "resize"
     },
     "web": {
       "output": "static",

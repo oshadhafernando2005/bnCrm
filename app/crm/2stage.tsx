@@ -261,10 +261,7 @@ export default function StageTwo() {
         onRequestClose={closeModal}
       >
         <View style={styles.modalOverlay}>
-          <KeyboardAvoidingView
-            behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={styles.modalContainer}
-          >
+          <View style={styles.modalContainer}>
 
             {/* Modal Header */}
             <View style={styles.modalHeader}>
@@ -294,7 +291,11 @@ export default function StageTwo() {
               </View>
             </View>
 
-            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false}>
+            <KeyboardAvoidingView
+              behavior={Platform.OS === "ios" ? "padding" : "height"}
+              style={{ flex: 1 }}
+            >
+            <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
 
               {/* ── VIEW MODE ── */}
               {!editMode && (
@@ -529,7 +530,8 @@ export default function StageTwo() {
               )}
 
             </ScrollView>
-          </KeyboardAvoidingView>
+            </KeyboardAvoidingView>
+          </View>
         </View>
       </Modal>
     </SafeAreaView>
