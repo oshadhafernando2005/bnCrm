@@ -476,7 +476,7 @@ export default function AllUsers() {
                     multiline
                     numberOfLines={4}
                     textAlignVertical="top"
-                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 300)}
+                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 500)}
                   />
 
                   <TouchableOpacity

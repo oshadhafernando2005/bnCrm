@@ -387,7 +387,7 @@ export default function StageTwo() {
                     multiline
                     numberOfLines={4}
                     textAlignVertical="top"
-                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 300)}
+                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 500)}
                   />
 
                   {/* Save Notes */}

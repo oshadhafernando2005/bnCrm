@@ -1,0 +1,42 @@
+diff --git a/app/crm/1stage.tsx b/app/crm/1stage.tsx
+index f97e99d..2b74365 100644
+--- a/app/crm/1stage.tsx
++++ b/app/crm/1stage.tsx
+@@ -93,7 +93,6 @@ export default function AllUsers() {
+   };
+ 
+   const closeModal = () => {
+-    Keyboard.dismiss();
+     setTimeout(() => {
+       setSelectedUser(null);
+       setNotes("");
+@@ -476,7 +475,7 @@ export default function AllUsers() {
+                     multiline
+                     numberOfLines={4}
+                     textAlignVertical="top"
+-                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 300)}
++                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 500)}
+                   />
+ 
+                   <TouchableOpacity
+diff --git a/app/crm/2stage.tsx b/app/crm/2stage.tsx
+index 21f3cfe..5566ac3 100644
+--- a/app/crm/2stage.tsx
++++ b/app/crm/2stage.tsx
+@@ -86,7 +86,6 @@ export default function StageTwo() {
+   };
+ 
+   const closeModal = () => {
+-    Keyboard.dismiss();
+     setTimeout(() => {
+       setSelectedUser(null);
+       setNotes("");
+@@ -387,7 +386,7 @@ export default function StageTwo() {
+                     multiline
+                     numberOfLines={4}
+                     textAlignVertical="top"
+-                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 300)}
++                    onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 500)}
+                   />
+ 
+                   {/* Save Notes */}
