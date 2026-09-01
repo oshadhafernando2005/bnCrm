@@ -93,13 +93,10 @@ export default function AllUsers() {
   };
 
   const closeModal = () => {
-    Keyboard.dismiss();
-    setTimeout(() => {
-      setSelectedUser(null);
-      setNotes("");
-      setEditMode(false);
-    }, 100);
-  };
+  setSelectedUser(null);
+  setNotes("");
+  setEditMode(false);
+};
 
   const startEdit = () => {
     if (!selectedUser) return;
