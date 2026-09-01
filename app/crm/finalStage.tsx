@@ -13,7 +13,9 @@ import { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
+  KeyboardAvoidingView,
   Linking,
+  Platform,
   Modal,
   SafeAreaView,
   ScrollView,
@@ -197,7 +199,10 @@ export default function FinalStage() {
         onRequestClose={closeModal}
       >
         <View style={styles.modalOverlay}>
-          <View style={styles.modalContainer}>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={styles.modalContainer}
+          >
 
             {/* Modal Header */}
             <View style={styles.modalHeader}>
@@ -300,7 +305,7 @@ export default function FinalStage() {
               </TouchableOpacity>
 
             </ScrollView>
-          </View>
+          </KeyboardAvoidingView>
         </View>
       </Modal>
     </SafeAreaView>

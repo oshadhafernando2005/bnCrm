@@ -1,0 +1,105 @@
+diff --git a/app/crm/1stage.tsx b/app/crm/1stage.tsx
+index 3e63144..7457db6 100644
+--- a/app/crm/1stage.tsx
++++ b/app/crm/1stage.tsx
+@@ -13,7 +13,9 @@ import { useEffect, useRef, useState } from "react";
+ import {
+   ActivityIndicator,
+   Alert,
++  KeyboardAvoidingView,
+   Linking,
++  Platform,
+   Modal,
+   SafeAreaView,
+   ScrollView,
+@@ -272,7 +274,10 @@ export default function AllUsers() {
+         onRequestClose={closeModal}
+       >
+         <View style={styles.modalOverlay}>
+-          <View style={styles.modalContainer}>
++          <KeyboardAvoidingView
++            behavior={Platform.OS === "ios" ? "padding" : "height"}
++            style={styles.modalContainer}
++          >
+ 
+             {/* Modal Header */}
+             <View style={styles.modalHeader}>
+@@ -611,7 +616,7 @@ export default function AllUsers() {
+               )}
+ 
+             </ScrollView>
+-          </View>
++          </KeyboardAvoidingView>
+         </View>
+       </Modal>
+     </SafeAreaView>
+diff --git a/app/crm/2stage.tsx b/app/crm/2stage.tsx
+index 9c8ec86..5b6d48d 100644
+--- a/app/crm/2stage.tsx
++++ b/app/crm/2stage.tsx
+@@ -13,7 +13,9 @@ import { useEffect, useRef, useState } from "react";
+ import {
+   ActivityIndicator,
+   Alert,
++  KeyboardAvoidingView,
+   Linking,
++  Platform,
+   Modal,
+   SafeAreaView,
+   ScrollView,
+@@ -259,7 +261,10 @@ export default function StageTwo() {
+         onRequestClose={closeModal}
+       >
+         <View style={styles.modalOverlay}>
+-          <View style={styles.modalContainer}>
++          <KeyboardAvoidingView
++            behavior={Platform.OS === "ios" ? "padding" : "height"}
++            style={styles.modalContainer}
++          >
+ 
+             {/* Modal Header */}
+             <View style={styles.modalHeader}>
+@@ -524,7 +529,7 @@ export default function StageTwo() {
+               )}
+ 
+             </ScrollView>
+-          </View>
++          </KeyboardAvoidingView>
+         </View>
+       </Modal>
+     </SafeAreaView>
+diff --git a/app/crm/finalStage.tsx b/app/crm/finalStage.tsx
+index 9403a56..9669851 100644
+--- a/app/crm/finalStage.tsx
++++ b/app/crm/finalStage.tsx
+@@ -13,7 +13,9 @@ import { useEffect, useRef, useState } from "react";
+ import {
+   ActivityIndicator,
+   Alert,
++  KeyboardAvoidingView,
+   Linking,
++  Platform,
+   Modal,
+   SafeAreaView,
+   ScrollView,
+@@ -197,7 +199,10 @@ export default function FinalStage() {
+         onRequestClose={closeModal}
+       >
+         <View style={styles.modalOverlay}>
+-          <View style={styles.modalContainer}>
++          <KeyboardAvoidingView
++            behavior={Platform.OS === "ios" ? "padding" : "height"}
++            style={styles.modalContainer}
++          >
+ 
+             {/* Modal Header */}
+             <View style={styles.modalHeader}>
+@@ -300,7 +305,7 @@ export default function FinalStage() {
+               </TouchableOpacity>
+ 
+             </ScrollView>
+-          </View>
++          </KeyboardAvoidingView>
+         </View>
+       </Modal>
+     </SafeAreaView>

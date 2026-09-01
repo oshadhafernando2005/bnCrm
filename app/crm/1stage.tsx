@@ -13,8 +13,10 @@ import { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
+  KeyboardAvoidingView,
   Linking,
   Modal,
+  Platform,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -272,7 +274,10 @@ export default function AllUsers() {
         onRequestClose={closeModal}
       >
         <View style={styles.modalOverlay}>
-          <View style={styles.modalContainer}>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={styles.modalContainer}
+          >
 
             {/* Modal Header */}
             <View style={styles.modalHeader}>
@@ -611,7 +616,7 @@ export default function AllUsers() {
               )}
 
             </ScrollView>
-          </View>
+          </KeyboardAvoidingView>
         </View>
       </Modal>
     </SafeAreaView>
